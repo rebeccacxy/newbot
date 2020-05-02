@@ -52,7 +52,7 @@ func init() {
 }
 
 func main() {
-	// bot = tbot.New(token, tbot.WithWebhook("https://rochambeau-bot.herokuapp.com", ":"+os.Getenv("PORT")))
+	bot = tbot.New(token, tbot.WithWebhook("https://obscure-garden-43532.herokuapp.com/", ":"+os.Getenv("PORT")))
 	// app.client = bot.Client()
 	// bot.HandleMessage("/start", app.startHandler)
 	// bot.HandleMessage("/play", app.playHandler)
@@ -60,7 +60,7 @@ func main() {
 	// bot.HandleMessage("/reset", app.resetHandler)
 	// bot.HandleCallback(app.callbackHandler)
 	// log.Fatal(bot.Start())
-	bot = tbot.New(token)
+	// bot = tbot.New(token)
 	app.client = bot.Client()
 	bot.HandleMessage("/start", app.startHandler)
 	bot.HandleMessage("/play", app.playHandler)
