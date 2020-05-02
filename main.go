@@ -49,7 +49,7 @@ func main() {
 	bot = tbot.New(token)
 	app.client = bot.Client()
 	bot.HandleMessage("/start", app.startHandler)
-	log.Fatal(bot.start())
+	log.Fatal(bot.Start())
 }
 
 func (a *application) startHandler(m *tbot.Message) {
