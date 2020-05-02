@@ -26,6 +26,20 @@ var (
 		"paper":    "rock",
 		"rock":     "scissors",
 		"scissors": "paper",
+		//"rock":     "lizard",
+		"lizard": "spock",
+		"spock":  "scissors",
+		//"scissors": "lizard",
+		//"lizard":   "paper",
+		//"paper":    "spock",
+		//"spock":    "rock",
+	}
+	options2 = map[string]string{
+		"scissors": "lizard",
+		"lizard":   "paper",
+		"paper":    "spock",
+		"spock":    "rock",
+		"rock":     "lizard",
 	}
 )
 
