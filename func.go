@@ -35,7 +35,7 @@ func makeButtons() *tbot.InlineKeyboardMarkup {
 	}
 }
 
-func (a *application) draw(humanMove string) (msg string) {
+func draw(humanMove string) (msg string) {
 	var result string
 	botMove := picks[rand.Intn(len(picks))] // Generaate a random option for the bot
 
@@ -43,13 +43,13 @@ func (a *application) draw(humanMove string) (msg string) {
 	switch humanMove {
 	case botMove:
 		result = "drew"
-		a.draws++
+	//	a.draws++
 	case options[botMove]:
 		result = "lost"
-		a.losses++
+	//	a.losses++
 	default:
 		result = "won"
-		a.wins++
+		//	a.wins++
 	}
 	msg = fmt.Sprintf("You %s! You chose %s and I chose %s.", result, humanMove, botMove)
 	return
