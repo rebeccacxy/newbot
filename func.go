@@ -8,7 +8,7 @@ import (
 	"github.com/yanzay/tbot/v2"
 )
 
-var picks = []string{"rock", "paper", "scissors"} // choices from where the bot picks
+var picks = []string{"rock", "paper", "scissors", "lizard", "spock"} // choices from where the bot picks
 
 func init() {
 	rand.Seed(time.Now().Unix()) // initialize global pseudo random generator
@@ -28,9 +28,17 @@ func makeButtons() *tbot.InlineKeyboardMarkup {
 		Text:         "Scissors",
 		CallbackData: "scissors",
 	}
+	btnLizard := tbot.InlineKeyboardButton{
+		Text:         "Lizard",
+		CallbackData: "lizard",
+	}
+	btnSpock := tbot.InlineKeyboardButton{
+		Text:         "Spock",
+		CallbackData: "spock",
+	}
 	return &tbot.InlineKeyboardMarkup{
 		InlineKeyboard: [][]tbot.InlineKeyboardButton{
-			[]tbot.InlineKeyboardButton{btnRock, btnPaper, btnScissors},
+			[]tbot.InlineKeyboardButton{btnRock, btnPaper, btnScissors, btnLizard, btnSpock},
 		},
 	}
 }
@@ -47,6 +55,8 @@ func draw(humanMove string) (msg string) {
 	case options[botMove]:
 		result = "lost"
 	//	a.losses++
+	case options2[botMove]:
+		result = "lost"
 	default:
 		result = "won"
 		//	a.wins++
