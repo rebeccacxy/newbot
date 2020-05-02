@@ -8,7 +8,7 @@ import (
 
 // Handle the /start command here
 func (a *application) startHandler(m *tbot.Message) {
-	msg := "This is a bot that will play rock papers scissors. YES SIS"
+	msg := "Are you bored at home from CB? Watched too much Big Bang Theory but no one to play Rock Paper Scissors Lizard Spock with you? \nHere's the perfect bot for you!"
 	a.client.SendMessage(m.Chat.ID, msg)
 }
 
@@ -31,7 +31,7 @@ func (a *application) playHandler(m *tbot.Message) {
 // 	a.client.SendMessage(m.Chat.ID, msg)
 // }
 
-// Handle buttton presses here
+// Handle button presses here
 func (a *application) callbackHandler(cq *tbot.CallbackQuery) {
 	humanMove := cq.Data
 	msg := draw(humanMove)
