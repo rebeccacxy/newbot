@@ -8,13 +8,13 @@ import (
 	"github.com/yanzay/tbot/v2"
 )
 
-// type score struct {
-// 	wins, draws, losses uint
-// }
+type score struct {
+	wins, draws, losses uint
+}
 
 type application struct {
 	client *tbot.Client
-	//	score
+	score
 }
 
 var (
@@ -26,13 +26,8 @@ var (
 		"paper":    "rock",
 		"rock":     "scissors",
 		"scissors": "paper",
-		//"rock":     "lizard",
-		"lizard": "spock",
-		"spock":  "scissors",
-		//"scissors": "lizard",
-		//"lizard":   "paper",
-		//"paper":    "spock",
-		//"spock":    "rock",
+		"lizard":   "spock",
+		"spock":    "scissors",
 	}
 	options2 = map[string]string{
 		"scissors": "lizard",
@@ -52,23 +47,13 @@ func init() {
 }
 
 func main() {
-	bot = tbot.New(token, tbot.WithWebhook("https://obscure-garden-43532.herokuapp.com/", ":"+os.Getenv("PORT")))
-	// app.client = bot.Client()
-	// bot.HandleMessage("/start", app.startHandler)
-	// bot.HandleMessage("/play", app.playHandler)
-	// bot.HandleMessage("/score", app.scoreHandler)
-	// bot.HandleMessage("/reset", app.resetHandler)
-	// bot.HandleCallback(app.callbackHandler)
-	// log.Fatal(bot.Start())
-	// bot = tbot.New(token)
+	bot = tbot.New(token, tbot.WithWebhook("https://newbotgamepoopoo.herokuapp.com/", ":"+os.Getenv("PORT")))
 	app.client = bot.Client()
 	bot.HandleMessage("/start", app.startHandler)
 	bot.HandleMessage("/play", app.playHandler)
+	bot.HandleMessage("/score", app.scoreHandler)
+	bot.HandleMessage("/reset", app.resetHandler)
+	bot.HandleMessage("/rules", app.rulesHandler)
 	bot.HandleCallback(app.callbackHandler)
 	log.Fatal(bot.Start())
 }
-
-// func (a *application) startHandler(m *tbot.Message) {
-// 	msg := "This bot will play rock paper scissors with you."
-// 	a.client.SendMessage(m.Chat.ID, msg)
-// }
