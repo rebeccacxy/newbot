@@ -17,23 +17,23 @@ func init() {
 func makeButtons() *tbot.InlineKeyboardMarkup {
 	// Create butttons with visible Text and CallbackData as a value.
 	btnRock := tbot.InlineKeyboardButton{
-		Text:         "Rock",
+		Text:         "Rock 👊🏻",
 		CallbackData: "rock",
 	}
 	btnPaper := tbot.InlineKeyboardButton{
-		Text:         "Paper",
+		Text:         "Paper ✋🏻",
 		CallbackData: "paper",
 	}
 	btnScissors := tbot.InlineKeyboardButton{
-		Text:         "Scissors",
+		Text:         "Scissors✌🏻",
 		CallbackData: "scissors",
 	}
 	btnLizard := tbot.InlineKeyboardButton{
-		Text:         "Lizard",
+		Text:         "Lizard 👌🏻",
 		CallbackData: "lizard",
 	}
 	btnSpock := tbot.InlineKeyboardButton{
-		Text:         "Spock",
+		Text:         "Spock 🖖🏻",
 		CallbackData: "spock",
 	}
 	return &tbot.InlineKeyboardMarkup{
@@ -43,7 +43,7 @@ func makeButtons() *tbot.InlineKeyboardMarkup {
 	}
 }
 
-func draw(humanMove string) (msg string) {
+func (a *application) draw(humanMove string) (msg string) {
 	var result string
 	botMove := picks[rand.Intn(len(picks))] // Generaate a random option for the bot
 
@@ -51,15 +51,15 @@ func draw(humanMove string) (msg string) {
 	switch humanMove {
 	case botMove:
 		result = "drew"
-	//	a.draws++
+		a.draws++
 	case options[botMove]:
 		result = "lost"
-	//	a.losses++
+		a.losses++
 	case options2[botMove]:
 		result = "lost"
 	default:
 		result = "won"
-		//	a.wins++
+		a.wins++
 	}
 	msg = fmt.Sprintf("You %s! You chose %s and I chose %s.", result, humanMove, botMove)
 	return
